@@ -1,0 +1,15 @@
+{
+  "name": "javascript-coding-review",
+  "version": "1.0.0",
+  "description": "javascript review",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "javascript",
+    "review"
+  ],
+  "author": "gogogo1024",
+  "license": "MIT"
+}
