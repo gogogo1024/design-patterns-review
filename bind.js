@@ -19,7 +19,6 @@ func();
 
 /**
  * complexBind
- 
  */
 Function.prototype.complexBind = function () {
     const self = this;
