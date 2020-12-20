@@ -1,3 +1,4 @@
+// 指责分类通用单例
 const getSingle = function (fn) {
     var ret;
     return function () {
