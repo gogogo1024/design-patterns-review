@@ -1,1 +1,1 @@
-# javascript code review
+# javascript design patterns code review
