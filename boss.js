@@ -4,8 +4,12 @@
 const Boss = function () { };
 
 Boss.prototype.paySalary = function () { };
-Boss.prototype.hire = function () { };
-Boss.prototype.completeProject = function () { };
+Boss.prototype.hire = function () {
+    throw new Error('必须要有hire')
+ };
+Boss.prototype.completeProject = function () { 
+    throw new Error('必须要有completeProject')
+};
 
 // 老板赚了更多的钱～
 Boss.prototype.makeMoreMoney = function () { 
