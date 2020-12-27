@@ -79,7 +79,7 @@ const fn3 = new Chain(function () {
     console.log('3');
 });
 fn1.setNextSuccessor(fn2).setNextSuccessor(fn3);
-fn1.passResult()
+fn1.passResult();
 
 
 
