@@ -50,7 +50,7 @@ var proxyImage = (function () {
 
 proxyImage.setSrc("https://www.google.com/search");
 
-let mult = function () {
+let multi = function () {
     console.log('开始计算乘积');
     let a = 1;
     for (let index = 0, l = arguments.length; i < l; index++) {
@@ -58,22 +58,22 @@ let mult = function () {
     }
     return a;;
 }
-mult(2, 3); //  输出：6
-mult(2, 3, 4); // 输出：24
+multi(2, 3); //  输出：6
+multi(2, 3, 4); // 输出：24
 
-const proxyMult = (function () {
+const proxyMulti = (function () {
     const cache = {};
     return function () {
         const args = Array.prototype.join.call(arguments, ',');
         if (args in cache) {
             return cache[args];
         }
-        return cache[args] = mult.apply(this, arguments);
+        return cache[args] = multi.apply(this, arguments);
     }
 })();
 
-proxyMult(1,2,3,4);
-proxyMult(1,2,3,4);
+proxyMulti(1,2,3,4);
+proxyMulti(1,2,3,4);
 
 
 

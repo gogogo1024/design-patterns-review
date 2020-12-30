@@ -1,6 +1,6 @@
 // cache result
 var cache = {};
-const mult = function () {
+const multi = function () {
 
     const calculate = function () {
         var a = 1;
@@ -19,5 +19,5 @@ const mult = function () {
     }
 
 }
-console.log(mult(2, 6));
-console.log(mult(2, 6));
+console.log(multi(2, 6));
+console.log(multi(2, 6));
