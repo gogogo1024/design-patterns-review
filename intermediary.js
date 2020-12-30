@@ -110,3 +110,74 @@ player1.die();
 player2.die();
 player3.die();
 player4.die();
+
+// 购买商品中介模式 800/801是CPU型号
+const goods = {
+    "red|32G|800":3,
+    "red|16G":0,
+    "blue|32G":1,
+    "blue|16G":6,
+}
+const mediator = (function(){
+    const nextBtn  = document.getElementById('nextBtn'),
+    colorSelect = document.getElementById('colorSelect'),
+    memorySelect= document.getElementById('memorySelect'),
+    numberInput = document.getElementById('numberInput'),
+    colorInfo = document.getElementById('colorInfo'),
+    memoryInfo = document.getElementById('memoryInfo'),
+    numberInfo = document.getElementById('numberInfo'),
+    cpuSelect = document.getElementById('cpuSelect'),
+    cpuInfo = document.getElementById('cpuSelect');
+
+    return {
+        changed : function(obj){ // 改变只通过change来处理，把自身当成参数（obj）传入中介者
+            const  stock = goods[color+'|'+memory + '|'+ cpu], 
+            color = colorSelect.value,
+            memory = memorySelect.value,
+            number = numberInput.value,
+            cpu = cpuSelect.value;
+            if (obj == colorSelect) {
+                colorInfo.innerHTML  =color;
+            }else if(obj == memorySelect){
+                memoryInfo.innerHTML =memory;
+            }else if(obj == numberInput){
+                numberInfo.innerHTML =number;
+            }else if (obj === cpuSelect) {
+                cpuInfo.innerHTML = cpu;
+            }
+            if (!color) {
+                nextBtn.disabled = true;
+                nextBtn.innerHTML = "请选择手机颜色";
+                return;
+            }
+            if (!memory) {
+                nextBtn.disabled = true;
+                nextBtn.innerHTML = "请选择内存大小";
+                return;
+            }
+            if (!cpu) {
+                nextBtn.disabled = true;
+                nextBtn.innerHTML = "请选择CPU型号";
+                return;
+            }
+            if (((number-0)|0) !==number - 0 && stock < number) { // 判断输入是否为正数以及输入和库存大小比较
+                nextBtn.disabled = true;
+                nextBtn.innerHTML = "请输入正确的购买数量";
+                return;
+            }
+           
+            nextBtn.innerHTML = false;
+            nextBtn.innerHTML = '放入购物车';
+        }
+    }
+})();
+colorSelect.onchange = function(){
+    mediator.changed(this)
+};
+
+memorySelect.onselect = function(){
+    mediator.changed(this)
+};
+numberInput.oninput = function(){
+    mediator.changed(this)
+};
